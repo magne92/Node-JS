@@ -1,0 +1,15 @@
+<script>
+    $(document).ready(function () {
+        var my_div = $("#holder");
+        $("#HButton").on("click", function () {
+
+          $.ajax({
+             url: "/api/books"
+          })
+          .done(function( data ) {
+             console.log( "Sample of data:", data );
+             $('#holder').html(data.message);
+          });
+        });
+    });
+</script>

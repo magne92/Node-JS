@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="holder">
+      WELCOME
+  </div>
+  <form>
+      <button type="button" id="btn"> HELLO </button>
+  </form>
+  
+</ul>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+   
+      axios.get('/api', {
+        })
+        .then(function (response) {
+          console.log(response);
+          console.log(response.data);
+          document.querySelector('#btn').innerHTML = response.data;
+          return response.data;   
+          
+        })
+      
+
+
+    const get_data = async () => {
+        try {
+          const response = await axios.get('/api');
+
+          const my_data = response.data;
+
+          //console.log('GET:', my_data);
+
+          return my_data;
+        } catch (errors) {
+          console.error(errors);
+        }
+      };
+
+
+      const main = async () => {
+          await get_data();
+          console.log(main);
+      };
+
+      main();
+
+
+
+    const form = document.querySelector('#btn');
+    form.addEventListener('click', async event => {
+      event.preventDefault();
+
+      const title = document.querySelector('#holder').innerHTML = main()
+
+    });
+
+
+    
+    var button = document.querySelector('#btn');
+    var holder = document.querySelector('#holder');
+    
+
+    /*
+    button.addEventListener("click", change_text)
+    
+
+    function change_text() {
+      axios_test()
+        .then(data => {
+          response.json({ message: 'Request received!', data })
+          })
+        .catch(err => console.log(err))
+
+
+
+      var data = axios_test();
+      console.log(data);
+      holder.innerHTML = data;
+    }
+    */
+    </script>
+    
+
+  </body>
+</html>
