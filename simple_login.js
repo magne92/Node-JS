@@ -22,14 +22,27 @@ app.get('/', function (req, res) {
          if (err) throw err;
          console.log(result);     
          var data = result; 
-         var potet = "potet";
-
-         res.render('index', {
-            data: data,
-            potet: potet 
-         });
+   
       });
    });
+})
+
+var myusername = "per";
+var mypassword = "123";
+
+app.post('/user',(req,res) => {
+
+    if(req.body.username == myusername && req.body.password == mypassword){
+        res.send(`Hey there, welcome <a href=\'/logout'>click to logout</a>`);
+        res.send({
+            login_id: myusername
+         });
+    }
+    else{
+        res.send({
+            login_id: false
+         });
+    }
 })
 
 

@@ -7,67 +7,79 @@
   <body>
     <div id="holder">
       WELCOME
-  </div>
+    </div>
   <form>
       <button type="button" id="btn"> HELLO </button>
   </form>
-  
+  <div id="holder2">
+    WELCOME
+  </div>
 </ul>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
+      // her brukes et rammeverk kalt axios som hjelper oss med å be om respons fra server
+    var button = document.querySelector('#btn');
+    var holder = document.querySelector('#holder');
    
-      axios.get('/api', {
+    update_html = async() => { // async gjør at koden venter på at respons fra server er motatt
+      axios.get('/api', { // request til serveren /api
         })
         .then(function (response) {
+          // hele responsen fra server
           console.log(response);
+
+          // 
           console.log(response.data);
-          document.querySelector('#btn').innerHTML = response.data;
-          return response.data;   
-          
+
+          //setter html innhold til en div med id 'holder' 
+          document.querySelector('#holder').innerHTML = response.data;  
         })
-      
+        .catch(function(error){
+          console.log(error);
+        });
+      }
 
-
-    const get_data = async () => {
-        try {
-          const response = await axios.get('/api');
-
-          const my_data = response.data;
-
-          //console.log('GET:', my_data);
-
-          return my_data;
-        } catch (errors) {
-          console.error(errors);
-        }
-      };
-
-
-      const main = async () => {
-          await get_data();
-          console.log(main);
-      };
-
-      main();
-
-
-
-    const form = document.querySelector('#btn');
-    form.addEventListener('click', async event => {
-      event.preventDefault();
-
-      const title = document.querySelector('#holder').innerHTML = main()
-
+    button.addEventListener('click', async event => {
+      //event.preventDefault();
+      //const title = document.querySelector('#holder').innerHTML = main()
+      //var test = await update_html();
+      update_html(); // kjører update_html funksjon
+      //console.log("test: ", Object.keys(test));
+      //response.json({message: "Request received!", data: test});
+     // document.querySelector('#holder2').innerHTML = test;
     });
 
 
-    
-    var button = document.querySelector('#btn');
-    var holder = document.querySelector('#holder');
-    
 
+    async function main() {
+        const data = await update_html();
+        
+        console.log('main done: ', data);
+    }
+
+   // main();
+
+
+    const test = async function (){
+      // do something here
+      console.log('async func test ran');
+    }
+
+    test();
+    
+    /*
+    update_html()
+      .then(data => {
+          response.json({ message: 'Request received!', data })
+      })
+      .catch(err => console.log(err))
+    */
+
+
+
+    
     /*
     button.addEventListener("click", change_text)
     
