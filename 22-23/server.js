@@ -1,3 +1,4 @@
+var mysql = require('mysql');
 var express = require('express');
 var app = express();
 
@@ -7,6 +8,14 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) { 
+    //connect database
+    //var con = mysql.createConnection({
+        //host: "localhost",
+        //user: "root",
+        //password: "",
+        //database: "test"
+    //}); 
+
     res.render('index', { 
 
     });

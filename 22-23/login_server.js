@@ -55,7 +55,7 @@ app.get('/logout', function (req, res) {
 app.post('/user',(req,res) => {
     if(req.body.username == myusername && req.body.password == mypassword){
         session=req.session;
-         session.userid=req.body.username;
+        session.userid=req.body.username;
         console.log(req.session)
         res.send(`Hey there, welcome <a href=\'/logout'>click to logout</a>`);
     }

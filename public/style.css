@@ -1,0 +1,50 @@
+body {
+    background-color: #1C3144;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+#chat_field {
+    height: 300px; /* Adjust this value as needed */
+    width: 300px;
+    overflow-y: auto;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: #596F62;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+}
+p {
+    background-color: #7EA16B;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    align-self: center;
+    margin: auto 0;    
+}
+  
+/* Safari */
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
